@@ -25,6 +25,14 @@ namespace ChatService.Infrastructure.Db
                     property.SetColumnName(ToSnakeCase(property.GetColumnBaseName()));
                 }
             }
+
+            modelBuilder.Entity<Order>()
+                .Property(u => u.CreatedDate)
+                .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
+
+            modelBuilder.Entity<Order>()
+               .Property(u => u.UpdDate)
+               .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
         }
 
         private static string ToSnakeCase(string input)

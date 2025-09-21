@@ -34,7 +34,7 @@ namespace ChatService.Endpoints
                 if (order is null) return Results.NotFound();
 
                 order.Amount = inputOrder.Amount;
-                order.UpdDate = DateTimeOffset.Now;
+                order.UpdDate = DateTime.UtcNow;
                 order.Status = inputOrder.Status;
                 order.IsPaid = inputOrder.IsPaid;
 
